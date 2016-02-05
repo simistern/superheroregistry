@@ -1,5 +1,17 @@
 var app = angular.module("superheroregistry", []);
 
+
+app.controller("AllegianceController", ["$scope","$http", function($scope, $http) {
+   $scope.data = {
+    repeatSelect: null,
+    availableOptions: [
+      {id: 'Captain America', name: 'People should be free'},
+      {id: 'Iron Man', name: 'People should be responsible'},
+      {id: 'Bernie Sanders', name: 'Feel the Bern'}
+    ],
+   };
+}]);
+
 app.controller("controller", ["$scope", "$http", function($scope, $http){
 
   $scope.rowitems = [];
