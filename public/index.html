@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+  <h1> Be the hero we need </h1>
+  <h2> Be the hero we deserve </h2>
+  <div id="app" ng-app="superheroregistry" ng-controller="controller">
+    <table>
+      <th> Name </th> <th> Superpower </th> <th> Date of Origin </th>
+      <tr ng-repeat="x in rowitems"><td>{{x.name}}</td><td>{{x.superpower}}</td>{{x.date}}</tr>
+    </table>
+    <input type="text" placeholder="Whats your superhero name..." ng-model="inputName"/>
+    <input type="text" placeholder="Whats your superpower..." ng-model="inputPower"/>
+    <button ng-click="addAvenger()"> Will you join the Avengers? </button>
+  </div>
+</body>
+</html>
