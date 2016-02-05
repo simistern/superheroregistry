@@ -10,6 +10,24 @@ require("rethink-config")({
 
 app.use(express.static('./public'));
 
+//GET Request for all items in superhero list table
+app.get("/registry", function(req, res, next){
+  r.db("Twitterjobbot").table("superheroRegistry").then(function(result){
+    res.status(200).send(result);
+  })
+})
+
+//POST request
+app.post("/registry", function(req,res,next){
+  r.db("Twitterjobbot").table("superheroRegistry").insert({
+    "name" : req.body.supername,
+    "power" : req.body.power,
+    "date" : new Date()
+  }).then(function(){
+      res.status(200).send("Line Items uploaded to server")
+    })
+  })
+
 app.get('*', function(request, result){
   result.sendFile(__dirname + "/public/index.html");
 })
