@@ -1,12 +1,19 @@
 var express = require("express");
 var app = express();
 var r = require("rethinkdbdash")();
+var bodyParser = require("body-parser");
 
 require("rethink-config")({
   "r": r,
   "database": "Twitterjobbot",
   "tables": ["superheroRegistry"]
 });
+
+//Parse JSON/Forms
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 app.use(express.static('./public'));
 
@@ -20,7 +27,7 @@ app.get("/registry", function(req, res, next){
 //POST request
 app.post("/registry", function(req,res,next){
   r.db("Twitterjobbot").table("superheroRegistry").insert({
-    "name" : req.body.supername,
+    "name" : req.body.name,
     "power" : req.body.power,
     "date" : new Date()
   }).then(function(){

@@ -16,12 +16,12 @@ app.controller("controller", ["$scope", "$http", function($scope, $http){
       "method": "POST",
       "url": "/registry",
       "data": {
-        "supername": $scope.inputName,
+        "name": $scope.inputName,
         "power": $scope.inputPower,
       }
     }).then(function(res){
       $scope.rowitems.push({
-        "supername": $scope.inputName,
+        "name": $scope.inputName,
         "power": $scope.inputPower,
       })
       $scope.inputName = "";

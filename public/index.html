@@ -7,7 +7,7 @@
   <div align="center" id="app" ng-app="superheroregistry" ng-controller="controller">
     <table class="pure-table">
       <th> Name </th> <th> Superpower </th> <th> Date of Origin </th>
-      <tr ng-repeat="x in rowitems"><td>{{x.supername}}</td><td>{{x.power}}</td><td>{{x.date}}</td></tr>
+      <tr ng-repeat="x in rowitems"><td>{{x.name}}</td><td>{{x.power}}</td><td>{{x.date}}</td></tr>
     </table>
     <input type="text" placeholder="Whats your superhero name..." ng-model="inputName"/>
     <input type="text" placeholder="Whats your superpower..." ng-model="inputPower"/>
