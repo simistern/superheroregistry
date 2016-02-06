@@ -31,6 +31,7 @@ app.controller("controller", ["$scope", "$http", function($scope, $http){
       "url": "/registry"
     }).then(function(res){
       $scope.rowitems = res.data;
+      console.log("testing " + JSON.stringify(res.data));
     })
   };
 
