@@ -5,25 +5,19 @@
   <h1> Be the hero we need </h1>
   <h2> Be the hero we deserve </h2>
 
-
-
-
   <div align="center" id="app" ng-app="superheroregistry" ng-controller="controller">
-
-
-
     <table class="pure-table">
       <th> Name </th> <th> Superpower </th> <th> Date of Origin </th><th> Choose your Allegience </th>
       <tr ng-repeat="x in rowitems"><td>{{x.name}}</td><td>{{x.power}}</td><td>{{x.date}}</td ><td>
-        <div id="app" ng-app="superheroregistry" ng-controller="AllegianceController">
-          <form name="myForm">
-            <label for="repeatSelect"> Choose your Team </label>
-            <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
-              <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+       <!--<div id="app" ng-app="superheroregistry" ng-controller="AllegianceController"> -->
+          <form name="AllegianceForm">
+            <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect" ng-change="updateHeroes()">
+              <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrip}}</option>
             </select>
+            </div>
           </form>
           <p>{{data.repeatSelect}}</p>
-        </div>
+        <!--</div> -->
       </td></tr>
     </table>
     <input type="text" placeholder="Whats your superhero name..." ng-model="inputName"/>

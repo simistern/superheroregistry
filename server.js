@@ -20,20 +20,40 @@ app.use(express.static('./public'));
 //GET Request for all items in superhero list table
 app.get("/registry", function(req, res, next){
   r.db("Twitterjobbot").table("superheroRegistry").then(function(result){
+    //send array back to client
     res.status(200).send(result);
   })
 })
 
-//POST request
+//r.db("Twitterjobbot").table("superheroRegistry").get(id).update({"allegiance": req.body.team})
+
+
+//PATCH request for Allegiance
+app.patch("/registry", function(req,res,next){
+  r.db("Twitterjobbot").table("superheroRegistry").filter({
+    "id" : req.body.id
+  }).update({
+    "team": req.body.team
+  }).then(function(){
+    console.log('Chekcing on my team: ' + req.body.team);
+      res.status(200).send("Line Items uploaded to server")
+    })
+  })
+
+//POST request for name and power
 app.post("/registry", function(req,res,next){
   r.db("Twitterjobbot").table("superheroRegistry").insert({
+    "id" : req.body.id,
     "name" : req.body.name,
     "power" : req.body.power,
-    "date" : new Date()
+    "team" : 'undeclared'
+  //  "date" : new Date()
   }).then(function(){
       res.status(200).send("Line Items uploaded to server")
     })
   })
+
+
 
 app.get('*', function(request, result){
   result.sendFile(__dirname + "/public/index.html");
