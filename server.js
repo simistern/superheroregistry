@@ -30,12 +30,13 @@ app.get("/registry", function(req, res, next){
 
 //PATCH request for Allegiance
 app.patch("/registry", function(req,res,next){
+  console.log("Lets try checking request " + req.body.teamchoice);
   r.db("Twitterjobbot").table("superheroRegistry").filter({
     "id" : req.body.id
   }).update({
-    "team": req.body.team
+    "team": req.body.teamchoice
   }).then(function(){
-    console.log('Chekcing on my team: ' + req.body.team);
+    console.log('Checking on my team: ' + JSON.stringify(req.body));
       res.status(200).send("Line Items uploaded to server")
     })
   })

@@ -17,7 +17,7 @@ app.controller("controller", ["$scope", "$http", function($scope, $http){
   $scope.rowteams = [];
 
   $scope.data = {
-   repeatSelect: 'freelance hero-for-hire',
+   teamchoice: 'freelance hero-for-hire',
    availableOptions: [
      {id: 'Captain America', descrip: 'People should be free'},
      {id: 'Iron Man', descrip: 'People should be responsible'},
@@ -37,13 +37,13 @@ app.controller("controller", ["$scope", "$http", function($scope, $http){
 
   $scope.getHeroes();
 
-  $scope.updateHeroes = function(){
-    //console.log("what is the value of " + $scope.repeatSelect.id);
+  $scope.updateHeroes = function(teamchoice){
+    console.log("what is the value of " + teamchoice);
     $http({
       "method": "PATCH",
       "url": "/registry",
-      "data": $scope.repeatSelect
-    }).then(function(res){
+      "data": { teamchoice }
+    }).then(function(){
       $scope.getHeroes();
     });
   }

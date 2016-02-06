@@ -11,12 +11,12 @@
       <tr ng-repeat="x in rowitems"><td>{{x.name}}</td><td>{{x.power}}</td><td>{{x.date}}</td ><td>
        <!--<div id="app" ng-app="superheroregistry" ng-controller="AllegianceController"> -->
           <form name="AllegianceForm">
-            <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect" ng-change="updateHeroes()">
+            <select name="teamchoice" id="teamchoice" ng-model="teamchoice" ng-change="updateHeroes(teamchoice)">
               <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrip}}</option>
             </select>
             </div>
           </form>
-          <p>{{data.repeatSelect}}</p>
+          <p>{{teamchoice}}</p>
         <!--</div> -->
       </td></tr>
     </table>
