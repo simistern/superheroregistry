@@ -38,12 +38,12 @@ app.controller("controller", ["$scope", "$http", function($scope, $http){
 
   $scope.getHeroes();
 
-  $scope.updateHeroes = function(teamchoice){
+  $scope.updateHeroes = function(hero){
     console.log("what is the value of " + teamchoice);
     $http({
       "method": "PATCH",
       "url": "/registry",
-      "data": { teamchoice }
+      "data": hero
     }).then(function(){
       $scope.getHeroes();
     });

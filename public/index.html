@@ -8,17 +8,20 @@
   <div align="center" id="app" ng-app="superheroregistry" ng-controller="controller">
     <table class="pure-table">
       <th> Name </th> <th> Superpower </th> <th> Date of Origin </th><th> Choose your Allegience </th>
-      <tr ng-repeat="x in rowitems"><td>{{x.name}}</td><td>{{x.power}}</td><td>{{x.date}}</td ><td>
-       <!--<div id="app" ng-app="superheroregistry" ng-controller="AllegianceController"> -->
+      <tr ng-repeat="x in rowitems">
+        <td>{{x.name}}</td>
+        <td>{{x.power}}</td>
+        <td>{{x.date}}</td>
+        <td>
           <form name="AllegianceForm">
-            <select name="teamchoice" id="teamchoice" ng-model="rowitems.teamchoice" ng-change="updateHeroes(teamchoice)">
-              <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrip}}</option>
+            <select ng-model="x.team" ng-change="updateHeroes(x)">
+              <option ng-repeat="option in data.availableOptions" value="{{option.descrip}}">{{option.descrip}}</option>
             </select>
             </div>
           </form>
           <p>{{teamchoice}}</p>
-        <!--</div> -->
-      </td></tr>
+        </td>
+      </tr>
     </table>
     <input type="text" placeholder="Name.." ng-model="inputName"/>
     <input type="text" placeholder="Password.." ng-model="inputPower"/>

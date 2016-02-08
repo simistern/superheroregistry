@@ -37,9 +37,9 @@ app.patch("/registry", function(req,res,next){
     "team": req.body.teamchoice
   }).then(function(){
     console.log('Checking on my team: ' + JSON.stringify(req.body));
-      res.status(200).send("Line Items uploaded to server")
-    })
+    res.status(200).send("Line Items uploaded to server")
   })
+})
 
 //POST request for name and power
 app.post("/registry", function(req,res,next){
@@ -50,9 +50,9 @@ app.post("/registry", function(req,res,next){
     "team" : 'undeclared'
   //  "date" : new Date()
   }).then(function(){
-      res.status(200).send("Line Items uploaded to server")
-    })
+    res.status(200).send("Line Items uploaded to server")
   })
+})
 
 
 
